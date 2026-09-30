@@ -104,37 +104,67 @@
           </div>
         </div>
 
-        <!-- Columna Visual Sobria -->
-        <div class="hero-summary-card">
-          <div class="summary-card-header">
-            <span class="summary-badge">Áreas de Especialidad</span>
-            <span class="summary-location">Medellín, Colombia</span>
-          </div>
-          <div class="summary-list">
-            <div class="summary-item">
-              <div class="summary-icon">01</div>
-              <div class="summary-text">
-                <h3>Análisis Financiero</h3>
-                <p>Estructura de costos, flujo de caja proyectado y tableros de control directivo.</p>
+        <!-- Columna Visual: Video Destacado de Presentación -->
+        <div class="hero-video-wrapper">
+          <div class="hero-video-card">
+            <div class="video-card-header">
+              <div class="video-badge">
+                <span class="video-pulse-dot"></span>
+                <span>Video de Presentación</span>
+              </div>
+              <span class="video-location">eXtrategia Consulting</span>
+            </div>
+
+            <!-- Contenedor del Reproductor -->
+            <div class="video-player-container" id="videoPlayerContainer">
+              <!-- 
+                GUÍA RÁPIDA PARA CAMBIAR EL VIDEO:
+                1. Video local (.mp4): Guarda tu archivo en la carpeta 'assets/' y cambia src="assets/tu_video.mp4".
+                2. YouTube: Reemplaza la etiqueta <video>...</video> por este código:
+                   <iframe src="https://www.youtube.com/embed/TU_ID_DE_VIDEO?autoplay=1" title="Video eXtrategia" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              -->
+              <video id="heroVideo" 
+                     class="hero-video-element" 
+                     controls 
+                     preload="metadata" 
+                     playsinline
+                     poster="assets/video_poster.jpg">
+                <source src="assets/video_demo.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+              </video>
+
+              <!-- Overlay con Botón de Play Elegante -->
+              <div class="video-play-overlay" id="videoPlayOverlay">
+                <button class="video-play-btn" id="videoPlayBtn" aria-label="Reproducir video de presentación">
+                  <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </button>
+                <div class="overlay-info">
+                  <span class="overlay-tag">Conoce nuestra propuesta</span>
+                  <span class="overlay-action">Haz clic para reproducir</span>
+                </div>
               </div>
             </div>
-            <div class="summary-item">
-              <div class="summary-icon">02</div>
-              <div class="summary-text">
-                <h3>Automatización de Procesos</h3>
-                <p>Conciliaciones bancarias, integración de fuentes y eliminación de reprocesos manuales.</p>
+
+            <!-- Especialidades Clave bajo el video -->
+            <div class="video-card-footer">
+              <div class="video-features-list">
+                <div class="vfeature-item">
+                  <span class="vfeature-num">01</span>
+                  <span>Análisis Financiero</span>
+                </div>
+                <div class="vfeature-item">
+                  <span class="vfeature-num">02</span>
+                  <span>Automatización</span>
+                </div>
+                <div class="vfeature-item">
+                  <span class="vfeature-num">03</span>
+                  <span>CFO on Demand</span>
+                </div>
               </div>
+              <p class="summary-quote">"La 'x' expresa el cruce entre estrategia y ejecución responsable."</p>
             </div>
-            <div class="summary-item">
-              <div class="summary-icon">03</div>
-              <div class="summary-text">
-                <h3>CFO on Demand</h3>
-                <p>Liderazgo financiero para juntas directivas, comités y estructuración de proyectos.</p>
-              </div>
-            </div>
-          </div>
-          <div class="summary-card-footer">
-            <p class="summary-quote">"La 'x' expresa el cruce entre estrategia y ejecución responsable."</p>
           </div>
         </div>
       </div>

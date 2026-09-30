@@ -75,4 +75,46 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 800);
     });
   }
+
+  // 4. Control del Video de Presentación en el Hero
+  const heroVideo = document.getElementById('heroVideo');
+  const videoPlayOverlay = document.getElementById('videoPlayOverlay');
+  const videoPlayBtn = document.getElementById('videoPlayBtn');
+
+  if (heroVideo && videoPlayOverlay) {
+    const playVideo = () => {
+      heroVideo.play().then(() => {
+        videoPlayOverlay.classList.add('hidden');
+      }).catch((err) => {
+        console.warn('Autoplay prevented or video playback error:', err);
+      });
+    };
+
+    videoPlayOverlay.addEventListener('click', () => {
+      playVideo();
+    });
+
+    if (videoPlayBtn) {
+      videoPlayBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        playVideo();
+      });
+    }
+
+    heroVideo.addEventListener('play', () => {
+      videoPlayOverlay.classList.add('hidden');
+    });
+
+    heroVideo.addEventListener('pause', () => {
+      if (heroVideo.currentTime === 0 || heroVideo.ended) {
+        videoPlayOverlay.classList.remove('hidden');
+      }
+    });
+
+    heroVideo.addEventListener('ended', () => {
+      videoPlayOverlay.classList.remove('hidden');
+      heroVideo.load();
+    });
+  }
 });
+
